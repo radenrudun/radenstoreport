@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raden Store - Toko Digital Terpercaya</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+    <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap"
+    rel="stylesheet">
+    <link
+    href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap"
+    rel="stylesheet">
+    
+    
+    <style>
+     @font-face {
+      font-family: 'POPEXBOLD';
+      src: url('Poppins-ExtraBold.otf');
+    }
+    @font-face {
+      font-family: 'MB';
+      src: url('Montserrat-Bold.ttf');
+    }
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary-color: #3b82f6;
+            --text-color: #1e293b;
+            --bg-color: #ffffff;
+            --card-bg: #f8fafc;
+            --footer-bg: #1e293b;
+            --footer-text: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --transition: all 0.3s ease;
+            --float-animation: float 6s ease-in-out infinite;
+        }
+
+        .dark-mode {
+            --primary-color: #3b82f6;
+            --primary-dark: #2563eb;
+            --secondary-color: #60a5fa;
+            --text-color: #e2e8f0;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --footer-bg: #020617;
+            --footer-text: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+            --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            
+        }
+
+        body {
+            font-family: "Poppins", Sans-Serif;
+            font-weight: 500;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: var(--transition);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        header {
+          font-family: POPEXBOLD;
+            background-color: var(--bg-color);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: var(--primary-color);
+            bottom: 0;
+            left: -100%;
+            transition: var(--transition);
+        }
+
+        .logo:hover::after {
+            left: 0;
+        }
+
+        .logo:hover {
+            transform: translateY(-3px);
+            text-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .logo span {
+            
+            color: var(--text-color);
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            background-color: var(--card-bg);
+            border-radius: 30px;
+            padding: 0.5rem 1rem;
+            width: 300px;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(37, 99, 235, 0.1);
+        }
+
+        .search-container:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-3px);
+            border-color: rgba(37, 99, 235, 0.3);
+        }
+
+        .search-container input {
+            border: none;
+            background: transparent;
+            outline: none;
+            width: 100%;
+            color: var(--text-color);
+            padding: 0.5rem;
+        }
+
+        .search-container button {
+            background: transparent;
+            border: none;
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .search-container button:hover {
+            color: var(--primary-dark);
+            transform: scale(1.2);
+        }
+
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .theme-toggle {
+            background: var(--card-bg);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--text-color);
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .theme-toggle::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(37, 99, 235, 0.1), transparent);
+            transition: var(--transition);
+            transform: translateX(-100%);
+        }
+
+        .theme-toggle:hover::before {
+            transform: translateX(100%);
+        }
+
+        .theme-toggle:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: rotate(30deg) scale(1.1);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1001;
+            transition: var(--transition);
+        }
+
+        .hamburger:hover span {
+            background-color: var(--primary-color);
+            transform: scaleX(1.1);
+        }
+
+        .hamburger span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: var(--text-color);
+            border-radius: 3px;
+            transition: var(--transition);
+            transform-origin: left center;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+            background-color: var(--primary-color);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+            background-color: var(--primary-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            bottom: 0;
+            left: 0;
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background-color: var(--card-bg);
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: var(--transition);
+            padding: 5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 1.2rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            background-color: var(--bg-color);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transform: translateX(20px);
+            opacity: 0;
+        }
+
+        .mobile-menu.active a {
+            transform: translateX(0);
+            opacity: 1;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .mobile-menu.active a:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+
+        .mobile-menu.active a:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+
+        .mobile-menu.active a:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+
+        .mobile-menu a i {
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .mobile-menu a:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateX(10px) scale(1.05);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .mobile-menu a:hover i {
+            color: white;
+            transform: scale(1.2);
+        }
+
+        /* Hero Section */
+        .hero {
+          
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero::before, .hero::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(37, 99, 235, 0.05);
+            z-index: -1;
+            animation: var(--float-animation);
+        }
+
+        .hero::before {
+            width: 300px;
+            height: 300px;
+            top: -100px;
+            left: -100px;
+            animation-delay: 0s;
+        }
+
+        .hero::after {
+            width: 200px;
+            height: 200px;
+            bottom: -50px;
+            right: -50px;
+            animation-delay: 1s;
+        }
+
+        .hero h1 {
+            font-family: POPEXBOLD;
+            font-weight: 800;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            animation: fadeInDown 1s ease;
+            text-shadow: 0 2px 0px rgba(37, 99, 235, 0.2);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero h1::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            background: var(--primary-color);
+            bottom: -10px;
+            left: 25%;
+            border-radius: 2px;
+            animation: expand 2s ease infinite alternate;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .services::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(37, 99, 235, 0.05);
+            border-radius: 50%;
+            top: 50px;
+            right: 0;
+            z-index: -1;
+            animation: var(--float-animation);
+            animation-delay: 0.5s;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            background: var(--primary-color);
+            bottom: -10px;
+            left: 25%;
+            border-radius: 2px;
+            animation: expand 2s ease infinite alternate;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            animation: fadeInUp 0.5s ease;
+            opacity: 0;
+            animation-fill-mode: forwards;
+            position: relative;
+            border: 1px solid rgba(37, 99, 235, 0.1);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 1;
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-card:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .service-card:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .service-card:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .service-card:nth-child(4) {
+            animation-delay: 0.8s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(37, 99, 235, 0.3);
+        }
+
+        .service-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: var(--transition);
+            transform-origin: center center;
+        }
+
+        .service-card:hover .service-img {
+            transform: scale(1.05);
+        }
+
+        .service-content {
+            padding: 1.5rem;
+            position: relative;
+            z-index: 2;
+            background-color: var(--card-bg);
+        }
+
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            transition: var(--transition);
+            position: relative;
+            display: inline-block;
+        }
+
+        .service-content h3::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            bottom: -5px;
+            left: 0;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-content h3::after {
+            width: 100%;
+        }
+
+        .service-content p {
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-content p {
+            transform: translateX(5px);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .btn i {
+            transition: var(--transition);
+        }
+
+        .btn:hover i {
+            transform: translateX(3px);
+        }
+
+        /* About Section */
+        .about {
+            padding: 4rem 2rem;
+            background-color: var(--card-bg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about::before, .about::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(37, 99, 235, 0.05);
+            z-index: 0;
+            animation: var(--float-animation);
+        }
+
+        .about::before {
+            width: 250px;
+            height: 250px;
+            top: -50px;
+            left: -50px;
+            animation-delay: 0s;
+        }
+
+        .about::after {
+            width: 180px;
+            height: 180px;
+            bottom: -30px;
+            right: -30px;
+            animation-delay: 1s;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-img {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            animation: var(--float-animation);
+            border: 1px solid rgba(37, 99, 235, 0.1);
+        }
+
+        .about-img:hover {
+            transform: translateY(-10px) scale(1.01);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(37, 99, 235, 0.3);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .about-img:hover img {
+            transform: scale(1.03);
+        }
+
+        .about-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-content h2 {
+            font-size: 2.0rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+        }
+
+        .about-content h2::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            background: var(--primary-color);
+            bottom: -10px;
+            left: 0;
+            border-radius: 2px;
+            animation: expand 2s ease infinite alternate;
+        }
+
+        .about-content p {
+            margin-bottom: 1rem;
+            transition: var(--transition);
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .about-content p::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 3px;
+            background: var(--primary-color);
+            transition: var(--transition);
+            opacity: 0;
+        }
+
+        .about-content:hover p::before {
+            opacity: 1;
+        }
+
+        .about-content:hover p {
+            transform: translateX(10px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--footer-bg);
+            color: var(--footer-text);
+            padding: 3rem 2rem 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before, footer::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(37, 99, 235, 0.05);
+            z-index: 0;
+            animation: var(--float-animation);
+        }
+
+        footer::before {
+            width: 300px;
+            height: 300px;
+            top: -100px;
+            right: -100px;
+            animation-delay: 0s;
+        }
+
+        footer::after {
+            width: 200px;
+            height: 200px;
+            bottom: -50px;
+            left: -50px;
+            animation-delay: 1s;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: inline-block;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .footer-logo::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            bottom: 0;
+            left: 0;
+            transition: var(--transition);
+        }
+
+        .footer-logo:hover::after {
+            width: 100%;
+        }
+
+        .footer-logo:hover {
+            transform: translateY(-3px);
+            text-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .footer-about p {
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--footer-text);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .social-links a:hover::before {
+            left: 100%;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer-links h3, .footer-contact h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-links h3::after, .footer-contact h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-color);
+            bottom: 0;
+            left: 0;
+            animation: expand 2s ease infinite alternate;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+            transition: var(--transition);
+        }
+
+        .footer-links li:hover {
+            transform: translateX(5px);
+        }
+
+        .footer-links a {
+            color: var(--footer-text);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-links a i {
+            color: var(--primary-color);
+            font-size: 0.8rem;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+
+        .footer-links a:hover i {
+            transform: translateX(3px);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            transform: translateX(5px);
+        }
+
+        .contact-item i {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .contact-item:hover i {
+            transform: scale(1.2);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes expand {
+            0% {
+                transform: scaleX(1);
+            }
+            100% {
+                transform: scaleX(1.3);
+            }
+        }
+
+        .animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .animate.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .search-container {
+                width: 200px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem;
+            }
+            
+            .nav-menu {
+                display: none;
+            }
+            
+            .hamburger {
+                display: flex;
+            }
+            
+            .search-container {
+                display: none;
+            }
+            
+            .mobile-search {
+                display: flex !important;
+                width: 100%;
+                margin-top: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about-container {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 6rem 1rem 3rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .services, .about {
+                padding: 3rem 1rem;
+            }
+            
+            .service-card {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            Raden<span>Store</span>
+        </div>
+        
+        <div class="search-container">
+            <input type="text" placeholder="Cari produk atau layanan...">
+            <button type="submit"><i class="fas fa-search"></i></button>
+        </div>
+        
+        <div class="header-controls">
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+            
+            <nav class="nav-menu">
+                <a href="#services"><i class="fas fa-gamepad"></i> Layanan</a>
+                <a href="#about"><i class="fas fa-info-circle"></i> Tentang</a>
+                <a href="#contact"><i class="fas fa-phone-alt"></i> Kontak</a>
+            </nav>
+            
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#services"><i class="fas fa-gamepad"></i> Layanan</a>
+            <a href="#about"><i class="fas fa-info-circle"></i> Tentang Kami</a>
+            <a href="#contact"><i class="fas fa-phone-alt"></i> Kontak</a>
+            <div class="search-container mobile-search">
+                <input type="text" placeholder="Cari...">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Hallo, Selamat Datang Di Raden Store</h1>
+        <p>Raden Store adalah toko digital terpercaya yang menyediakan berbagai
+        layanan berkualitas dengan harga terjangkau.</p>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <h2 class="section-title">Layanan Kami</h2>
+        
+        <div class="services-grid">
+            <!-- Service 1: Top Up Game -->
+            <div class="service-card animate">
+                <img src="https://files.catbox.moe/9bp94n.svg" alt="Top Up Game" class="service-img">
+                <div class="service-content">
+                    <h3>Top Up Game</h3>
+                    <p>Top up diamond, UC, Voucher Game dan lainnya untuk
+                    berbagai game populer seperti Mobile Legends, Free Fire,
+                    PUBG, Valorant, Genshin Impact, dan banyak lagi. Proses cepat dan harga termurah!</p>
+                    <a href="https://wa.me/6285180972835?text=Saya%20ingin%20top%20up%20game" class="btn">Order Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <!-- Service 2: Aplikasi Premium -->
+            <div class="service-card animate">
+                <img src="https://files.catbox.moe/e2m7z3.svg" alt="Aplikasi Premium" class="service-img">
+                <div class="service-content">
+                    <h3>Aplikasi Premium</h3>
+                    <p>Dapatkan akses premium ke berbagai aplikasi seperti
+                    Spotify, YouTube Premium, Netflix, Canva Pro, Alight Motion, dan banyak lagi dengan harga spesial hanya untuk Anda.</p>
+                    <a href="https://wa.me/6285180972835?text=Saya%20ingin%20beli%20aplikasi%20premium" class="btn">Order Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <!-- Service 3: Sewa Bot WhatsApp -->
+            <div class="service-card animate">
+                <img src="https://files.catbox.moe/2qv72l.svg" alt="Sewa Bot WhatsApp" class="service-img">
+                <div class="service-content">
+                    <h3>Sewa Bot WhatsApp</h3>
+                    <p>Nikmati kemudahan otomasi WhatsApp dengan bot canggih
+                    kami. Fitur lengkap untuk marketing, downloader, dan berbagai tools lainnya. Garansi uptime 99% dan support 24/7.</p>
+                    <a href="https://wa.me/6285180972835?text=Saya%20ingin%20sewa%20bot%20WhatsApp" class="btn">Order Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <!-- Service 4: VIP Service -->
+            <div class="service-card animate">
+                <img src="https://files.catbox.moe/yniq5s.svg" class="service-img">
+                <div class="service-content">
+                    <h3>VIP Service</h3>
+                    <p>Layanan eksklusif untuk kebutuhan khusus Anda. Termasuk jasa pembuatan script bot wa, desain grafis, manage sosial media, dan konsultasi digital. Tim profesional siap membantu!</p>
+                    <a href="https://files.catbox.moe/6ydk9t.svg" class="btn">Order Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-container">
+            <div class="about-content">
+                <h2>Tentang Raden Store</h2>
+                <p>Raden Store didirikan pada tahun 2025 dengan misi memberikan layanan digital berkualitas dengan harga terjangkau. Kami berkomitmen untuk menyediakan produk dan layanan terbaik kepada pelanggan.</p>
+                <p>Dengan tim yang berpengalaman di bidang digital, kami telah melayani ribuan pelanggan dari seluruh Indonesia. Keamanan dan kepuasan pelanggan adalah prioritas utama kami.</p>
+                <p>Kami terus berinovasi dan menambah layanan untuk memenuhi kebutuhan digital masyarakat modern. Raden Store bukan hanya toko, tapi partner digital terpercaya untuk Anda.</p>
+                <p>Setiap transaksi dijamin aman dan legal. Kami bekerja sama dengan penyedia resmi untuk memastikan produk yang kami tawarkan 100% original dan terjamin kualitasnya.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="footer-about">
+                <div class="footer-logo">Raden Store</div>
+                <p>Toko digital terpercaya menyediakan berbagai layanan berkualitas dengan harga terjangkau. Aman, cepat, dan berpengalaman.</p>
+                <div class="social-links">
+                    <a href="https://wa.me/6285180972835" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://tiktok.com/@radenstoreid" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    <a href="mailto: radenbussinesid@gmail.com"><i class="far fa-envelope"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Link Cepat</h3>
+                <ul>
+                    <li><a href="#services"><i class="fas fa-chevron-right"></i> Layanan Kami</a></li>
+                    <li><a href="#about"><i class="fas fa-chevron-right"></i> Tentang Kami</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Syarat & Ketentuan</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Kebijakan Privasi</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h3>Hubungi Kami</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Magelang, Jawa Tengah, Indonesia</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+62 851-8097-2835</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="far fa-envelope"></i>
+                        <span>radenbussinesid@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="far fa-clock"></i>
+                        <span>Buka Setiap Hari 06:00 - 22:00 WIB</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 Raden Store. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const icon = themeToggle.querySelector('i');
+        
+        // Check for saved theme preference
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme) {
+            body.classList.add(currentTheme);
+            if (currentTheme === 'dark-mode') {
+                icon.classList.replace('fa-moon', 'fa-sun');
+            }
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark-mode');
+                icon.classList.replace('fa-moon', 'fa-sun');
+            } else {
+                localStorage.setItem('theme', '');
+                icon.classList.replace('fa-sun', 'fa-moon');
+            }
+        });
+        
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            
+            // Animate mobile menu items when opening
+            if (mobileMenu.classList.contains('active')) {
+                const links = mobileMenu.querySelectorAll('a');
+                links.forEach((link, index) => {
+                    link.style.transitionDelay = `${index * 0.1}s`;
+                });
+            }
+        });
+        
+        // Close mobile menu when clicking a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+        
+        // Scroll Animation
+        const animateElements = document.querySelectorAll('.animate');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    observer.unobserve(entry.target);
+                    
+                    // Add floating animation after the element appears
+                    setTimeout(() => {
+                        entry.target.style.animation = 'float 6s ease-in-out infinite';
+                    }, 600);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        animateElements.forEach(element => {
+            observer.observe(element);
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Search functionality
+        const searchInput = document.querySelector('.search-container input');
+        const searchButton = document.querySelector('.search-container button');
+        
+        searchButton.addEventListener('click', performSearch);
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+        
+        function performSearch() {
+            const query = searchInput.value.trim().toLowerCase();
+            if (!query) return;
+            
+            // In a real implementation, this would search your products/services
+            alert(`Anda mencari: ${query}\n\nFitur pencarian lengkap akan diimplementasikan dengan backend.`);
+        }
+        
+        // Add floating effect to elements with images
+        const floatingElements = document.querySelectorAll('.about-img, .service-card');
+        floatingElements.forEach(el => {
+            el.style.animation = 'float 6s ease-in-out infinite';
+            el.style.animationDelay = `${Math.random() * 2}s`;
+        });
+    </script>
+</body>
+</html>
